@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { PokemonModel } from '../models/pokemon';
 
 @Injectable({
@@ -13,6 +13,16 @@ export class PokemonService {
 
   getPokemon(name: string): Observable<PokemonModel> {
     return this.httpClient
-        .get<PokemonModel>(`${this.baseUrl}/pokemon/${name}`);
+        .get<any>(`${this.baseUrl}/pokemon/${name}`)
+        .pipe(
+          map(response => ({
+            id: response.id,
+            name: response.name,
+            spriteURL: response.sprites.front_default,
+            cryURL: response.cries.latest,
+            types: response.types.map((t:any) => t.type.name)
+
+          }))
+        )
   }
 }

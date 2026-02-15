@@ -1,6 +1,7 @@
 export interface PokemonModel {
     id: number;
+    spriteURL: string;
+    cryURL:string;
     name: string;
-    height: number;
     types: string[];
 }

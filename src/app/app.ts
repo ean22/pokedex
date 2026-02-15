@@ -1,6 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PokemonService } from './services/pokemon';
+import { PokemonModel } from './models/pokemon';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { PokemonService } from './services/pokemon';
 })
 export class App implements OnInit{
   protected readonly title = signal('pokedex');
-  private pokemon: any;
+  private pokemon!: PokemonModel;
 
 
   constructor(private pokemonService: PokemonService) {}
