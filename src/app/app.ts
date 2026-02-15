@@ -10,6 +10,20 @@ import { PokemonService } from './services/pokemon';
 })
 export class App implements OnInit{
   protected readonly title = signal('pokedex');
+  private pokemon: any;
 
+
+  constructor(private pokemonService: PokemonService) {}
+
+  ngOnInit(): void {
+    this.pokemonService.getPokemon('pikachu')
+        .subscribe(data => {
+          this.pokemon = data;
+          
+          console.log(this.pokemon);
+        })
+  }
+
+  
 }
 
