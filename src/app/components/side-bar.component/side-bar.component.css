@@ -1,0 +1,9 @@
+:host{
+    display: block;
+    
+    height: 100vh;
+    min-width: 260px;
+    max-width: 400px;
+
+    background-color: aqua;
+}

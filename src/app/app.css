@@ -1,0 +1,16 @@
+main {
+  display: flex;
+}
+
+.content {
+    height: 10000px;
+    display: block;
+
+    background-color: bisque;
+}
+
+app-side-bar {
+    position: sticky;
+    top: 0;
+}
+
